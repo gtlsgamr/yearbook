@@ -1,0 +1,39 @@
+{%extends 'layout.html'%}
+{%block content%}
+<form enctype="multipart/form-data" method="POST" class="w-400 mw-full">
+    <!-- w-400 = width: 40rem (400px), mw-full = max-width: 100% -->
+    <!-- Input -->
+    <div class="form-group">
+        <label for="full-name" class="required">First name</label>
+        <input type="text" class="form-control" id="firstname" name='firstname' placeholder="First name" required="required">
+    </div>
+    <div class="form-group">
+        <label for="full-name" class="required">Last name</label>
+        <input type="text" class="form-control" id="lastname" name='lastname' placeholder="Last name" required="required">
+    </div>
+    <div class="form-group">
+        <label for="full-name" class="required">Yearbook quote</label>
+        <input type="text" class="form-control" id="yb_quote" name="yb_quote" placeholder="Your yearbook quote, e.g. Kya kar rahe hai aap?" required="required">
+    </div>
+
+
+
+    <!-- File input -->
+    <div class="form-group">
+        <label for="picture" class="required">Display picture (Please upload square photo.)</label>
+        <div class="custom-file">
+            <input type="file" id="picture" name='yb_pic' required="required">
+            <label for="picture">Choose picture</label>
+        </div>
+    </div>
+
+
+    <div class='form-group' style='float:left; padding:1px; margin:1px;'id='upload-demo'>
+    </div>
+ 
+    <!-- Submit button -->
+    <input class="btn btn-primary" type="submit" value="Submit">
+    <div style="color:green">{{message}}</div>
+</form>
+
+{%endblock content%}
