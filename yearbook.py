@@ -78,7 +78,7 @@ def yearbookpage():
     return render_template('yearbook.html', school_name=SCHOOL_NAME, title='Submit YB')
 
 @app.route('/confession', methods=['GET','POST'])
-def confession():
+def conf():
     if request.method == 'POST':
         c2 = request.form['confession']
         c = confession(c2)
