@@ -34,16 +34,16 @@ class confession(db.Model):
     confession = db.Column(db.String(200))
     id = db.Column(db.Integer, primary_key='true')
 
-    def __init__(self, confession):
-        self.confession = confession
+    def __init__(self, conf):
+        self.confession = conf
 
 class memory(db.Model):
     memory = db.Column(db.String(300))
     fullname = db.Column(db.String(30))
     id = db.Column(db.Integer, primary_key='true')
 
-    def __init__(self, confession,fullname):
-        self.memory = confession
+    def __init__(self, mem,fullname):
+        self.memory = mem
         self.fullname = fullname
         
 db.create_all()
