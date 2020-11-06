@@ -36,6 +36,15 @@ class confession(db.Model):
 
     def __init__(self, confession):
         self.confession = confession
+
+class memory(db.Model):
+    memory = db.Column(db.String(300))
+    fullname = db.Column(db.String(30))
+    id = db.Column(db.Integer, primary_key='true')
+
+    def __init__(self, confession,fullname):
+        self.memory = confession
+        self.fullname = fullname
         
 db.create_all()
 
@@ -80,7 +89,7 @@ def confession():
 @app.route('/writeup', methods=['GET','POST'])
 def writeup():
     if request.method == 'POST':
-        c = confession(request.form['confession'])
+        c = memory(request.form['memory'],request.form['fullname'])
         db.session.add(c)
         db.session.commit()
         return render_template('writeup.html', school_name=SCHOOL_NAME, title='Write-up', message='Sucessful!')
