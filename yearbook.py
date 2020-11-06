@@ -80,7 +80,8 @@ def yearbookpage():
 @app.route('/confession', methods=['GET','POST'])
 def confession():
     if request.method == 'POST':
-        c = confession(request.form['confession'])
+        c2 = request.form['confession']
+        c = confession(c2)
         db.session.add(c)
         db.session.commit()
         return render_template('confessions.html', school_name=SCHOOL_NAME, title='Confession', message='Sucessful!')
