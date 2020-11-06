@@ -90,7 +90,7 @@ def conf():
 @app.route('/writeup', methods=['GET','POST'])
 def writeup():
     if request.method == 'POST':
-        c = memory(request.form['memory'],request.form['fullname'])
+        c = memory(request.form['write-up'],request.form['fullname'])
         db.session.add(c)
         db.session.commit()
         return render_template('writeup.html', school_name=SCHOOL_NAME, title='Write-up', message='Sucessful!')
